@@ -27,11 +27,18 @@
     <h2>Verifique o Enquadramento do Estudante</h2>
     <label for="cargaHoraria">Digite a Carga Horária de Disciplinas Obrigatórias Cursadas:</label>
     <input type="number" id="cargaHoraria" placeholder="Ex: 2000">
-    <button onclick="calcularSemestre()">Calcular</button>
+    <button id="botao" onclick="calcularSemestre()">Calcular</button>
 
     <p id="resultado"></p>
 
     <script>
+
+        document.getElementById("cargaHoraria").addEventListener("keydown", function(event){
+            if (event.key === "Enter"){
+                document.getElementById("botao").click();
+            }
+        });
+
         function calcularSemestre() {
             let cargaHorariaEstudante = parseInt(document.getElementById("cargaHoraria").value);
             let resultado = document.getElementById("resultado");
@@ -67,6 +74,7 @@
 
             resultado.textContent = "Estudante está no " + semestre;
         }
+        
     </script>
 
 </body>
